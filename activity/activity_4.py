@@ -7,7 +7,7 @@ load_dotenv()
 
 llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0.7)
 
-system_message = SystemMessage(content="You are a helpful assistant. Keep your responses concise and friendly.")
+system_message = SystemMessage(content="You are a helpful assistant. Keep your ress concise and friendly.")
 messages = [system_message]
 
 def save_chat_log():
@@ -23,9 +23,9 @@ def save_chat_log():
 
 def chat(user_input):
     messages.append(HumanMessage(content=user_input))
-    response = llm.invoke(messages)
-    messages.append(AIMessage(content=response.content))
-    return response.content
+    res = llm.invoke(messages)
+    messages.append(AIMessage(content=res.content))
+    return res.content
 
 if __name__ == "__main__":
     print("Chat with the assistant (type 'bye' to save and exit)\n")
@@ -38,5 +38,5 @@ if __name__ == "__main__":
             print("\n✅ Chat saved to chat_log.txt. Goodbye!")
             break
         
-        response = chat(user_input)
-        print(f"Assistant: {response}\n")
+        res = chat(user_input)
+        print(f"Assistant: {res}\n")

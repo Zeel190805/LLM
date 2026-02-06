@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-user_input = "Tell me a creative story about a robot learning to paint."
+user_input = "Tell me small joke about programming."
 system_prompt = "You are a creative storyteller. Write engaging and imaginative stories."
 
 def run_with_temperature(temp):
@@ -13,8 +13,8 @@ def run_with_temperature(temp):
         SystemMessage(content=system_prompt),
         HumanMessage(content=user_input),
     ]
-    response = llm.invoke(messages)
-    return response.content
+    res = llm.invoke(messages)
+    return res.content
 
 if __name__ == "__main__":
     temperatures = [0.0, 0.4, 0.9]
